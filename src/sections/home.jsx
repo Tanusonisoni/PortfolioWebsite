@@ -179,13 +179,13 @@ export default function Home() {
         </div>
 
        <div className="relative w-full h-full">
- {/* <div className="relative hidden lg:block h-screen">
+ <div className="relative hidden lg:block h-screen">
   <motion.img
     src={first}
     alt="Tanu Soni"
-    className="absolute top-[55%] -translate-y-1/2 object-contain select-none pointer-events-none"
+    className="absolute top-[48%] -translate-y-1/2 object-contain select-none pointer-events-none"
     style={{
-      right: "80px",
+      right: "160px",
       width: "min(38vw, 600px)",
       maxWidth: "90%",
       maxHeight: "70vh",
@@ -194,43 +194,43 @@ export default function Home() {
     animate={{ opacity: 1, y: 0, scale: 1 }}
     transition={{ delay: 0.2, duration: 0.8 }}
   />
-</div> */}
+</div>
 
-<div className="relative hidden lg:block h-screen">
-  {/* <div className="absolute
-  top:1/2
-  -translate-y-1/2
-  pointer-events-none"
-  style={{right:"10px",width:"min(22vw,410vw",
-  heigh:"min(40vw,760px)",
-  borderRadius:"50%",
-  filter:"blur(38px)",opacity:0.32,background:"conic-gradient(from 0deg,#1cd8d2 , #00bf8f, #302b63, #1cd8d2"
-  }}></div> */}
+{/* <div className="relative hidden lg:block h-screen overflow-hidden">
 
-
-  <motion.img
-    src={first}
-    alt="Tanu Soni"
+  <div
     className="
       absolute
-      top-[49%]
+      top-1/2
+      right-[calc(8%+30px)]
       -translate-y-1/2
-      object-contain
-      select-none
-      pointer-events-none
-      drop-shadow-[0_0_7px_rgba(0,217,166,0.08)]
+      w-[min(30vw,450px)]
+      h-[min(30vw,450px)]
+      rounded-full
+      overflow-hidden
     "
-    style={{
-      right: "130px",
-      width: "min(34vw, 540px)",
-      maxWidth: "85%",
-      maxHeight: "77vh",
-    }}
-    initial={{ opacity: 0, y: 40, scale: 0.98 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ delay: 0.2, duration: 0.8 }}
-  />
-</div>
+  >
+    <motion.img
+      src={first}
+      alt="Tanu Soni"
+      className="
+        w-full
+        h-50%
+        object-cover
+        object-center
+        select-none
+        pointer-events-none
+      "
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+      }}
+    />
+  </div>
+
+</div> */}
 </div>
       </div>
     </section >

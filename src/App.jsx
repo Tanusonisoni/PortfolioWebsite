@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/navbar'
 import Home from './sections/home'
 import About from './sections/about'
@@ -7,12 +7,18 @@ import Projects from './sections/project'
 import Testimonial from './sections/testimonial'
 import Contact from './sections/contact'
 import Footer from './sections/footer'
+import IntroAnimatopn from './components/IntroAnimatopn'
 // import CustomCursor from './components/customcursor'
 
 
-
 function App() {
+  const [intro,setIntro]=useState(false);
   return (
+    <>
+   {!intro && <IntroAnimatopn onFinish={()=>
+   setIntro(true)}/>}
+    
+    {intro &&(
     <div className="gradient min-h-screen">
       {/* <customCursor/> */}
       <Navbar/>
@@ -24,6 +30,8 @@ function App() {
       <Footer/>
 
     </div>
+    )}
+     </>
   );
 }
 
