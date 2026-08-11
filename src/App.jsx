@@ -1,0 +1,30 @@
+import React from 'react'
+import Navbar from './components/navbar'
+import Home from './sections/home'
+import About from './sections/about'
+import Skills from './sections/skills'
+import Projects from './sections/project'
+import Testimonial from './sections/testimonial'
+import Contact from './sections/contact'
+import Footer from './sections/footer'
+// import CustomCursor from './components/customcursor'
+
+
+
+function App() {
+  return (
+    <div className="gradient min-h-screen">
+      {/* <customCursor/> */}
+      <Navbar/>
+      <Home/>
+      <About/>
+      <Skills/>
+      <Projects/>
+      <Testimonial/>
+      <Footer/>
+
+    </div>
+  );
+}
+
+export default App
