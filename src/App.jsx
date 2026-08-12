@@ -8,6 +8,8 @@ import Testimonial from './sections/testimonial'
 import Contact from './sections/contact'
 import Footer from './sections/footer'
 import IntroAnimatopn from './components/IntroAnimatopn'
+import Project from './sections/project'
+import {Routes,Route} from "react-router"
 // import CustomCursor from './components/customcursor'
 
 
@@ -15,23 +17,44 @@ function App() {
   const [intro,setIntro]=useState(false);
   return (
     <>
-   {!intro && <IntroAnimatopn onFinish={()=>
-   setIntro(true)}/>}
     
-    {intro &&(
-    <div className="gradient min-h-screen">
-      {/* <customCursor/> */}
       <Navbar/>
       <Home/>
       <About/>
+      <Routes>
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/project" element={<Project />} />
+    </Routes>
       <Skills/>
-      <Projects/>
       <Testimonial/>
       <Footer/>
 
-    </div>
-    )}
-     </>
+      </>
+  //   <>
+  //  {!intro && <IntroAnimatopn onFinish={()=>
+  //  setIntro(true)}/>}
+    
+  //   {intro &&(
+  //   <div className="gradient min-h-screen ">
+  //     {/* <customCursor/> */}
+  //     <Navbar/>
+  //     <Home/>
+  //     <About/>
+  //     <Skills/>
+  //     <Projects/>
+  //     <Testimonial/>
+  //     <Footer/>
+
+  //   </div>
+  //   )}
+
+    
+  //    </>
+
+     
+
+      
+
   );
 }
 

@@ -7,67 +7,68 @@ import Overlaymenu from "./overlaymenu";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [forcevisible,setForcevisible]=useState(false)
+  const [forcevisible, setForcevisible] = useState(false)
 
 
-  const lastScrollY=useRef(0);
-  const timerId=useRef(null);
-  useEffect(()=>{
-    const homeSection=document.querySelector("#home");
-    const observer=new IntersectionObserver(
-      ([entry])=>{
-        if(entry.isIntersecting){
+  const lastScrollY = useRef(0);
+  const timerId = useRef(null);
+  useEffect(() => {
+    const homeSection = document.querySelector("#home");
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setForcevisible(true);
           setVisible(true);
         }
-        else 
-        {
+        else {
           setForcevisible(false);
         }
-      },{threshol:0.1}
+      }, { threshold: 0.1 }
     )
-    if(homeSection) observer.observe(homeSection);
-    return ()=>{
-      if(homeSection) observer.unobserve(homeSection)
+    if (homeSection) observer.observe(homeSection);
+    return () => {
+      if (homeSection) observer.unobserve(homeSection)
     }
-  },[])
+  }, [])
 
-  useEffect(()=>{
-    const handelScroll=()=>{
-      if(forcevisible)
-      {
+  useEffect(() => {
+    const handelScroll = () => {
+      if (forcevisible) {
         setVisible(true);
         return;
       }
-      const currentScrollY=window.scrollY;
-      if(currentScrollY>lastScrollY.current)
-      {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
         setVisible(false)
       }
-      else{
+      else {
         setVisible(true)
-      
-      if(timerId.current) clearTimeout(timerId.current);
-      timerId.current=setTimeout(()=>{
-        setVisible(false)
-      },3000)
+      }
+
+      if (timerId.current) clearTimeout(timerId.current)
+      {
+        timerId.current = setTimeout(() => {
+          setVisible(false)
+        }, 3000)
+      }
+      lastScrollY.current = currentScrollY
     }
-    lastScrollY.current=currentScrollY
+    window.addEventListener("scroll", handelScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handelScroll)
+      if (timerId.current) clearTimeout(timerId.current);
     }
-    window.addEventListener("scroll",handelScroll,{passive:true})
-    return ()=>{
-      window.removeEventListener("scroll",handelScroll)
-      if(timerId.current) clearTimeout(timerId.current);
-    }
-  },[forcevisible])
+  }, [forcevisible])
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full h-20 z-50">
-
+      <nav
+        className={`fixed top-0 left-0 w-full h-20 z-50 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full "
+          }`}
+      >
         {/* Logo */}
         <div className="absolute left-6 top-1/2 -translate-y-1/2">
-        {/* <img src="logo" alt="mylogo"/> */}
+
           <span className="text-2xl font-bold text-white">
             Tanu
           </span>
