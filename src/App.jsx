@@ -21,11 +21,13 @@ function App() {
       <Navbar/>
       <Home/>
       <About/>
-      <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
-      <Route path="/project" element={<Project />} />
-    </Routes>
+      {/* <Routes>
+      <Route path="/" element={<Home />} /> 
+       <Route path="/project" element={<Project />} /> 
+    </Routes> */}
       <Skills/>
+            <Project/>
+
       <Testimonial/>
       <Footer/>
 
