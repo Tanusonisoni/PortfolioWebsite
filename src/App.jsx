@@ -16,41 +16,40 @@ import { Routes, Route } from "react-router"
 function App() {
   const [intro, setIntro] = useState(false);
   return (
-    <>
+    // <>
 
-      <Navbar />
-      <Home />
-      <About />
-      {/* <Routes>
-      <Route path="/" element={<Home />} /> 
-       <Route path="/project" element={<Project />} /> 
-    </Routes> */}
-      <Skills />
-      <Project />
-       <Contact/>
-      <Footer />
+    //   <Navbar />
+    //   <Home />
+    //   <About />
+    //   {/* <Routes>
+    //   <Route path="/" element={<Home />} /> 
+    //    <Route path="/project" element={<Project />} /> 
+    // </Routes> */}
+    //   <Skills />
+    //   <Project />
+    //    <Contact/>
+    //   <Footer />
 
-    </>
-    //   <>
-    //  {!intro && <IntroAnimatopn onFinish={()=>
-    //  setIntro(true)}/>}
+    // </>
+      <>
+     {!intro && <IntroAnimatopn onFinish={()=>
+     setIntro(true)}/>}
 
-    //   {intro &&(
-    //   <div className="gradient min-h-screen ">
-    //     {/* <customCursor/> */}
-    //     <Navbar/>
-    //     <Home/>
-    //     <About/>
-    //     <Skills/>
-    //     <Projects/>
-    //     <Testimonial/>
-    //     <Footer/>
+      {intro &&(
+      <div className="gradient min-h-screen ">
+        {/* <customCursor/> */}
+        <Navbar/>
+        <Home/>
+        <About/>
+        <Skills/>
+        <Projects/>
+        <Footer/>
 
-    //   </div>
-    //   )}
+      </div>
+      )}
 
 
-    //    </>
+       </>
 
 
 

@@ -6,7 +6,6 @@ import pr2 from "../assets/img/pro2.1.png";
 import text from "../assets/img/textsum.png"
 import resume from "../assets/img/resume.png"
 import { AnimatePresence, useMotionValueEvent, useScroll, motion } from "framer-motion";
-import { NavLink } from "react-router";
 
 const useIsMobile = (query = "(max-width: 639px)") => {
   const [isMobile, setIsMobile] = useState(
@@ -62,7 +61,7 @@ export default function Project() {
       {
         title: "Resume Builder",
         link: "https://github.com/Tanusonisoni/ResumeBuilder.git",
-        bgColor: "",
+        bgColor: "#252779",
         image: resume
       },
       {
@@ -246,40 +245,35 @@ export default function Project() {
             View Project
           </a>
         </div> */}
-        <div className="mt-6 flex justify-center">
-          <a
-            href={activeProject.link}
-            target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-              window.open(
-                activeProject.link,
-                "_blank",
-                "noopener,noreferrer"
-              );
-            }}
-            rel="noopener noreferrer"
-            className="
-      group relative
-      px-7 py-3 mb-10
-      rounded-full
-      border border-white/20
-      bg-white/10
-      backdrop-blur-md
-      text-white
-      font-semibold
-      overflow-hidden
-      transition-all duration-300
-      hover:scale-105
-      hover:border-white/40
-      hover:bg-white/20
-    "
-          >
-            <span className="relative z-10">
-              View Project →
-            </span>
-          </a>
-        </div>
+        {activeProject.link && (
+  <div className="mt-6 flex justify-center">
+    <a
+      href={activeProject.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex
+        items-center
+        justify-center
+        px-7 py-3
+        mb-10
+        rounded-full
+        border border-white/20
+        bg-white/10
+        backdrop-blur-md
+        text-white
+        font-semibold
+        transition-all duration-300
+        hover:scale-105
+        hover:border-white/40
+        hover:bg-white/20
+        cursor-pointer
+      "
+    >
+      View Project →
+    </a>
+  </div>
+)}
       </div>
     </section>
   );
