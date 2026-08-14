@@ -4,58 +4,57 @@ import Home from './sections/home'
 import About from './sections/about'
 import Skills from './sections/skills'
 import Projects from './sections/project'
-import Testimonial from './sections/testimonial'
 import Contact from './sections/contact'
 import Footer from './sections/footer'
 import IntroAnimatopn from './components/IntroAnimatopn'
 import Project from './sections/project'
-import {Routes,Route} from "react-router"
+import { Routes, Route } from "react-router"
+
 // import CustomCursor from './components/customcursor'
 
 
 function App() {
-  const [intro,setIntro]=useState(false);
+  const [intro, setIntro] = useState(false);
   return (
     <>
-    
-      <Navbar/>
-      <Home/>
-      <About/>
+
+      <Navbar />
+      <Home />
+      <About />
       {/* <Routes>
       <Route path="/" element={<Home />} /> 
        <Route path="/project" element={<Project />} /> 
     </Routes> */}
-      <Skills/>
-            <Project/>
+      <Skills />
+      <Project />
+       <Contact/>
+      <Footer />
 
-      <Testimonial/>
-      <Footer/>
+    </>
+    //   <>
+    //  {!intro && <IntroAnimatopn onFinish={()=>
+    //  setIntro(true)}/>}
 
-      </>
-  //   <>
-  //  {!intro && <IntroAnimatopn onFinish={()=>
-  //  setIntro(true)}/>}
-    
-  //   {intro &&(
-  //   <div className="gradient min-h-screen ">
-  //     {/* <customCursor/> */}
-  //     <Navbar/>
-  //     <Home/>
-  //     <About/>
-  //     <Skills/>
-  //     <Projects/>
-  //     <Testimonial/>
-  //     <Footer/>
+    //   {intro &&(
+    //   <div className="gradient min-h-screen ">
+    //     {/* <customCursor/> */}
+    //     <Navbar/>
+    //     <Home/>
+    //     <About/>
+    //     <Skills/>
+    //     <Projects/>
+    //     <Testimonial/>
+    //     <Footer/>
 
-  //   </div>
-  //   )}
+    //   </div>
+    //   )}
 
-    
-  //    </>
 
-     
+    //    </>
 
-      
+
+
+
 
   );
 }

@@ -45,7 +45,7 @@ export default function Project() {
       {
         title: "Event Management",
         link: "https://notes-app-ebon-nu.vercel.app/",
-        bgColor: "#070d25",
+        bgColor: "#06361c",
         image: isMobile ? img : photo1,
       },
       {
@@ -98,7 +98,7 @@ export default function Project() {
             }`}>
           {
             projects.map((projects, idx) => (
-              <div key={project2.title}
+              <div key={`${projects.title}-${idx}`}
                 className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                 transition-all  duration-500 ${activeIndex === idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"
                   }`}
