@@ -63,7 +63,7 @@ export default function Home() {
       <Particlelay />
 
       <div>
-        <div className="absolute -top-32 -left-32
+        <div className="absolute -top-32 -left-32 
       w-[70vw] sm:w-[z-500vw] md:w-[40vw] 
       h-[70vw] sm:h-[50vw] md:h-[40vw]
       max-w-[500px] max-h-[500px]
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
+      <div className="relative z-10 h-full w-full mt-5 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-centre lg-text-left relative">
           <div className="w-full lg:pr-24 mx-auto max-w-48rem">
             <motion.div
@@ -186,7 +186,7 @@ export default function Home() {
     alt="Tanu Soni"
     className="absolute top-[55%] -translate-y-1/2 object-contain select-none pointer-events-none"
     style={{
-      right: "80px",
+      right: "30%",
       width: "min(38vw, 600px)",
       maxWidth: "90%",
       maxHeight: "70vh",
