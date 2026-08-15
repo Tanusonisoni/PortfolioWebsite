@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 
-export default function IntroAnimatopn({ onFinish }) {
+export default function IntroAnimation({ onFinish }) {
   const greetings = useMemo(
     () => [
       "ciao",

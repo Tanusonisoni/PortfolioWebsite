@@ -6,8 +6,8 @@ import Skills from './sections/skills'
 import Projects from './sections/project'
 import Contact from './sections/contact'
 import Footer from './sections/footer'
-import IntroAnimatopn from './components/IntroAnimatopn'
 import Project from './sections/project'
+import IntroAnimation from "./components/introAnimation"
 import { Routes, Route } from "react-router"
 
 // import CustomCursor from './components/customcursor'
@@ -32,7 +32,7 @@ function App() {
 
     // </>
       <>
-     {!intro && <IntroAnimatopn onFinish={()=>
+     {!intro && <IntroAnimation onFinish={()=>
      setIntro(true)}/>}
 
       {intro &&(
