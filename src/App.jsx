@@ -7,6 +7,7 @@ import Projects from './sections/project'
 import Contact from './sections/contact'
 import Footer from './sections/footer'
 import Project from './sections/project'
+import CustomCursor from './components/customcursor'
 import IntroAnimation from "./components/introAnimation"
 import { Routes, Route } from "react-router"
 
@@ -31,25 +32,27 @@ function App() {
     //   <Footer />
 
     // </>
-      <>
-     {!intro && <IntroAnimation onFinish={()=>
-     setIntro(true)}/>}
+    <>
+              
 
-      {intro &&(
-      <div className="gradient min-h-screen ">
-        {/* <customCursor/> */}
-        <Navbar/>
-        <Home/>
-        <About/>
-        <Skills/>
-        <Projects/>
-        <Footer/>
+      {!intro && <IntroAnimation onFinish={() =>
+        setIntro(true)} />}
 
-      </div>
+      {intro && (
+        <div className="gradient min-h-screen ">
+          <CustomCursor/>
+          <Navbar />
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </div>
       )}
 
 
-       </>
+    </>
 
 
 

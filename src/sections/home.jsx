@@ -135,7 +135,7 @@ export default function Home() {
             >
 
               <a
-                href="#project"
+                href="#projects"
                 className="inline-block px-5 py-2.5 rounded-full font-medium text-base text-white m-4
   bg-gradient-to-r from-[#1cd828] via-[#00bf8f] to-[#302b63]
   shadow-lg
@@ -144,6 +144,10 @@ export default function Home() {
               >
                 View My Work
               </a>
+
+              
+
+              
               <a
                 href="/resume.pdf"
                 download
