@@ -1,0 +1,12 @@
+[35msrc/App.jsx[m[36m:[m[32m2[m[36m:[mimport Navbar [1;31mfrom './components[m/navbar'
+[35msrc/App.jsx[m[36m:[m[32m3[m[36m:[mimport Home [1;31mfrom './sections[m/home'
+[35msrc/App.jsx[m[36m:[m[32m4[m[36m:[mimport About [1;31mfrom './sections[m/about'
+[35msrc/App.jsx[m[36m:[m[32m5[m[36m:[mimport Skills [1;31mfrom './sections[m/skills'
+[35msrc/App.jsx[m[36m:[m[32m6[m[36m:[mimport Projects [1;31mfrom './sections[m/project'
+[35msrc/App.jsx[m[36m:[m[32m7[m[36m:[mimport Contact [1;31mfrom './sections[m/contact'
+[35msrc/App.jsx[m[36m:[m[32m8[m[36m:[mimport Footer [1;31mfrom './sections[m/footer'
+[35msrc/App.jsx[m[36m:[m[32m9[m[36m:[mimport Project [1;31mfrom './sections[m/project'
+[35msrc/App.jsx[m[36m:[m[32m10[m[36m:[mimport IntroAnimation [1;31mfrom "./components[m/introAnimation"
+[35msrc/App.jsx[m[36m:[m[32m13[m[36m:[m// import CustomCursor [1;31mfrom './components[m/customcursor'
+[35msrc/sections/contact.jsx[m[36m:[m[32m4[m[36m:[mimport Particlelay [1;31mfrom "../components[m/ParticleLay";
+[35msrc/sections/home.jsx[m[36m:[m[32m1[m[36m:[mimport Particlelay [1;31mfrom "../components[m/ParticleLay"

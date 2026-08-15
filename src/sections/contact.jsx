@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import Particlelay from "../components/Particlelay";
+import Particlelay from "../components/ParticleLay";
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;

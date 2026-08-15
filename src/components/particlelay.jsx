@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export default function Particlelay() {
+export default function ParticleLay() {
   const canvasRef = useRef(null);
 
   useEffect(() => {

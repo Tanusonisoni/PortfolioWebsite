@@ -1,4 +1,4 @@
-import Particlelay from "../components/Particlelay"
+import Particlelay from "../components/ParticleLay"
 import { motion } from "framer-motion"
 import { useEffect, useMemo, useState } from "react"
 import { href } from "react-router"
