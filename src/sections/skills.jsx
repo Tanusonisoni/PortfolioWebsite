@@ -150,7 +150,7 @@ export default function Skills() {
   },[dir,x])
 
   return (
-    <section id="skills ref={sectionRef}"
+    <section id="skills" ref={sectionRef}
       className="h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[300px] h-[300[x] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd832]]

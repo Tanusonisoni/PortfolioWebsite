@@ -33,7 +33,7 @@ export default function About() {
           />
         ))}
       </div>
-      <div className="realtive z-10 max-w-6xl w-full mx-auto px-6 md:px-10 lg:px-12 py-20 flex flex-col gap-12">
+      <div className="realtive z-10 max-w-6xl w-full mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-20 flex flex-col gap-12">
         <motion.div className="flex flex-col md:flex-row items-center md:items-stretch gap-6"
         initial={{opacity:0, y:24}}
         whileInView={{opacity:1,y:0}}
