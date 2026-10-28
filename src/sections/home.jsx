@@ -1,7 +1,6 @@
 import Particlelay from "../components/ParticleLay"
 import { motion } from "framer-motion"
 import { useEffect, useMemo, useState } from "react"
-import { href } from "react-router"
 import first from "../assets/img/image.png"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 
@@ -35,7 +34,7 @@ const golwVari = {
 
 }
 export default function Home() {
-  const roles = ["MERN Stack Developer", "Frontend Developer"]
+  const roles = useMemo(() => ["MERN Stack Developer", "Frontend Developer"], [])
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(1);
   const [deleting, setDeleting] = useState(false);
@@ -58,9 +57,11 @@ export default function Home() {
   }, [subIndex, index, deleting, roles])
 
   return (
-    <section id="home"
-      className="w-full h-screen relative bg-black overflow-hidden">
-      <Particlelay />
+    <section
+  id="home"
+  className="w-full min-h-screen lg:h-screen relative bg-black overflow-hidden"
+>
+   <Particlelay />
 
       <div>
         <div className="absolute -top-32 -left-32 
@@ -85,7 +86,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative z-10 h-full w-full mt-5 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
+      {/* <div className="relative z-10 min-h-screen lg:h-full h-full w-full mt-5 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2"> */}
+      <div className="relative z-10 min-h-0 lg:h-full w-full mt-5 pb-4 lg:pb-0 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-centre lg-text-left relative">
           <div className="w-full lg:pr-24 mx-auto max-w-48rem">
             <motion.div
@@ -145,9 +147,6 @@ export default function Home() {
                 View My Work
               </a>
 
-              
-
-              
               <a
                 href="/resume.pdf"
                 download
@@ -161,8 +160,9 @@ export default function Home() {
             </motion.div>
 
            
-          <div 
-          className="mt-6 left:0 sm:mt-10 flex gap-5 text-2xl md:text-3xl justify-start lg:justify-start">       
+          {/* <div 
+          className="mt-6 left:0 sm:mt-10 flex gap-5 text-2xl md:text-3xl justify-start lg:justify-start">        */}
+          <div className="mt-6 sm:mt-10 flex gap-5 text-2xl md:text-3xl justify-start">
           {socials.map(({ Icon, label, href }) => (
                 <motion.a
                   href={href}

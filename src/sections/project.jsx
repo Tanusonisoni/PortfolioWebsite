@@ -1,279 +1,127 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import img from "../assets/img/img.png";
-import photo1 from "../assets/img/photo1.png";
-import project2 from "../assets/img/pro2.png";
-import pr2 from "../assets/img/pro2.1.png";
-import text from "../assets/img/textsum.png"
-import resume from "../assets/img/resume.png"
-import { AnimatePresence, useMotionValueEvent, useScroll, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import ecoQuestImage from "../assets/img/ecoquest.jpeg";
+import inventoryImage from "../assets/img/quizappli.png";
+import quizImage from "../assets/img/placement.jpeg";
 
-const useIsMobile = (query = "(max-width: 639px)") => {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" &&
-    window.matchMedia(query).matches
-  );
+const projects = [
+  {
+    title: "EcoQuest",
+    description: "Learn about our planet. Take action. Make a difference.",
+    image: ecoQuestImage,
+    links: {
+      project: "https://major-project-frontend-drab.vercel.app/",
+      demo: "/Ecoquest-demo.mp4"
+    },
+  },
+  {
+    title: "Inventory Management System",
+    description: "Manage products, track stock, and streamline inventory operations.",
+    image: inventoryImage,
+    links: {
+      project: "https://inverntory-managementsystem.onrender.com/",
+      github: "https://github.com/Tanusonisoni/Inverntory_managementSystem",
+      demo: null,
+    },
+  },
+  {
+    title: "Real-Time Quiz Application",
+    description: "An interactive placement preparation app with focused topic quizzes.",
+    image: quizImage,
+    links: {
+      project: "https://notes-app-ebon-nu.vercel.app/",
+      demo: null,
+    },
+  },
+];
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+function ProjectAction({ href, children, disabled = false }) {
+  const className =
+    "inline-flex min-h-9 items-center justify-center rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold transition-all duration-300";
 
-    const mql = window.matchMedia(query);
-
-    const handler = (e) => {
-      setIsMobile(e.matches);
-    };
-
-    setIsMobile(mql.matches);
-
-    mql.addEventListener("change", handler);
-
-    return () => {
-      mql.removeEventListener("change", handler);
-    };
-  }, [query]);
-
-  return isMobile;
-};
-
-export default function Project() {
-  const isMobile = useIsMobile();
-
-  const sceneRef = useRef(null);
-
-  // const activeProject = projects[activeIndex];
-  const [activeIndex, setActiveIndex] = useState(0);
-
-
-  const projects = useMemo(
-    () => [
-      {
-        title: "Event Management",
-        link: "https://github.com/Tanusonisoni/EventManagement.git",
-        bgColor: "#06361c",
-        image: isMobile ? img : photo1,
-      },
-      {
-        title: "Real time quiz System",
-        link: "https://notes-app-ebon-nu.vercel.app/",
-        bgColor: "#1f2221",
-        image: isMobile ? pr2 : project2,
-      },
-      
-      {
-        title: "Resume Builder",
-        link: "https://github.com/Tanusonisoni/ResumeBuilder.git",
-        bgColor: "#252779",
-        image: resume
-      },
-      {
-        title: "Text Summarizer",
-        link: "",
-        bgColor: "#3b3b35",
-        image: text
-      }
-    ],
-    [isMobile]
-  );
-
-  const { scrollYProgress } = useScroll({
-    target: sceneRef,
-    offset: ["start start", "end end"],
-  });
-
-  const threshold = projects.map(
-    (_, i) => (i + 1) / projects.length
-  );
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = threshold.findIndex((t) => v <= t);
-
-    setActiveIndex(
-      idx === -1 ? threshold.length - 1 : idx
+  if (!href || disabled) {
+    return (
+      <span
+        aria-disabled="true"
+        className={`${className} cursor-not-allowed bg-white/5 text-white/50`}
+      >
+        {children}
+      </span>
     );
-  });
+  }
 
-  const activeProject = projects[activeIndex];
   return (
-    <section
-      id="projects"
-      ref={sceneRef}
-      className="relative text-white"
-      style={{
-        height: `${100 * projects.length}vh`,
-        backgroundColor: activeProject.bgColor,
-        transition: "background-color 400ms ease",
-      }}
-    >
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
-        <h2
-          className={`
-    relative
-    z-30
-    text-3xl
-    font-semibold
-    text-center
-    ${isMobile ? "mt-4 mb-2" : "mt-8 mb-3"}
-  `}
-        >
-          My Work
-        </h2>
-
-        <div
-          className={`
-    relative
-    w-full
-    flex-1
-    flex
-    flex-col
-    items-center
-    ${isMobile ? "mt-0" : "mt-0"}
-  `}
-        >
-          {projects.map((project, idx) => (
-            <div
-              key={`${project.title}-${idx}`}
-              className={`
-        absolute
-        top-0
-        left-1/2
-        -translate-x-1/2
-        w-[85%]
-        max-w-[1200px]
-        transition-all
-        duration-500
-        ${activeIndex === idx
-                  ? "opacity-100 z-20"
-                  : "opacity-0 z-0 pointer-events-none"
-                }
-      `}
-            >
-
-              {/* PROJECT NAME */}
-              <AnimatePresence mode="wait">
-                {activeIndex === idx && (
-                  <motion.h3
-                    key={project.title}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.4 }}
-                    className="
-              relative
-              z-30
-              text-center
-              text-white/95
-              italic
-              font-semibold
-              text-[clamp(1rem,3vw,2rem)]
-              leading-tight
-              mb-4
-            "
-                  >
-                    {project.title}
-                  </motion.h3>
-                )}
-              </AnimatePresence>
-
-              {/* PROJECT IMAGE */}
-              <div
-                className={`
-          relative
-          w-full
-          overflow-hidden
-          bg-black/20
-          shadow-2xl
-          ${isMobile
-                    ? "h-[48vh] rounded-lg"
-                    : "h-[58vh] rounded-xl"
-                  }
-        `}
-                style={{
-                  zIndex: 10,
-                }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="relative z-10 w-full h-full object-cover"
-                  style={{
-                    filter:
-                      "drop-shadow(0 16px 40px rgba(0,0,0,0.65))",
-                  }}
-                  loading="lazy"
-                />
-
-                <div
-                  className="pointer-events-none absolute inset-0 z-20"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 40%)",
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* <div className="mt-10">
-          <img
-            src={activeProject.image}
-            alt={activeProject.title}
-            className="w-72 h-72 object-contain"
-          />
-
-          <h3 className="mt-5 text-2xl font-semibold text-center">
-            {activeProject.title}
-          </h3>
-        </div> */}
-        {/* <div className="mt-6 flex justify-center">
-          <a
-            href={projects.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-      inline-block
-      px-6 py-3
-      rounded-full
-      bg-white
-      text-black
-      font-semibold
-      shadow-lg
-      hover:scale-105
-      transition-all
-      duration-300
-      cursor-pointer
-    "
-          >
-            View Project
-          </a>
-        </div> */}
-        {activeProject.link && (
-  <div className="mt-6 flex justify-center">
     <a
-      href={activeProject.link}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="
-        inline-flex
-        items-center
-        justify-center
-        px-7 py-3
-        mb-10
-        rounded-full
-        border border-white/20
-        bg-white/10
-        backdrop-blur-md
-        text-white
-        font-semibold
-        transition-all duration-300
-        hover:scale-105
-        hover:border-white/40
-        hover:bg-white/20
-        cursor-pointer
-      "
+      className={`${className} bg-white/10 text-white hover:scale-105 hover:border-white/40 hover:bg-white/20`}
     >
-      View Project →
+      {children}
     </a>
-  </div>
-)}
+  );
+}
+
+export default function Project() {
+  return (
+    <section id="projects" className="relative bg-black py-10 text-white sm:py-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+          className="mb-7 text-center text-3xl font-semibold sm:mb-9"
+        >
+          My Work
+        </motion.h2>
+
+        <div className="mx-auto grid max-w-5xl bg-[] grid-cols-1 items-stretch gap-4 md:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="group flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-white/10 bg-black/30 shadow-xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl"
+            >
+              <div className="h-28 w-full shrink-0 overflow-hidden bg-black/20 sm:h-32">
+                <img
+                  src={project.image}
+                  alt={`${project.title} project preview`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-3">
+                <h3 className="mb-1.5 text-base font-semibold leading-snug text-white/95">
+                  {project.title}
+                </h3>
+                <p className="mb-3 flex-1 text-xs leading-relaxed text-white/70">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  <ProjectAction href={project.links.project}>
+                    {project.links.project ? "View Project" : "Coming Soon"}
+                  </ProjectAction>
+                  {project.links.github && (
+                    <ProjectAction href={project.links.github}>
+                      GitHub
+                    </ProjectAction>
+                  )}
+                  <ProjectAction
+                    href={project.links.demo}
+                    disabled={!project.links.demo}
+                  >
+                    {project.links.demo ? "Watch Demo" : "Demo Not Available"}
+                  </ProjectAction>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );
